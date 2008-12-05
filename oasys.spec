@@ -86,10 +86,9 @@ export EXTLIB_LDFLAGS="-Wl,--as-needed -Wl,--no-undefined"
     --with-bluez \
     --with-expat=%{_prefix} \
     --with-xerces-c=%{_prefix} \
-    --with-tclreadline \
     --with-zlib \
     --with-db=%{_prefix} \
-    --with-dbver=4.6
+    --with-dbver=4.7
                                                                                                               
 make
 
