@@ -5,13 +5,15 @@
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
 Version:	1.3.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/dtn/%{name}-%{version}.tgz
 Patch0:		oasys-1.3.0-gcc43_fixes.diff
 Patch1:		oasys-1.3.0-soname_fixes.diff
+# Fix build for Tcl 8.6 (interp->result usage, TIP #330)
+Patch2:		oasys-1.3.0-tcl86.patch
 BuildRequires:	autoconf
 BuildRequires:	db4-devel
 BuildRequires:	google-perftools-devel
@@ -19,7 +21,7 @@ BuildRequires:	libbluez-devel
 BuildRequires:	libexpat-devel
 BuildRequires:	python
 BuildRequires:	python-devel
-BuildRequires:	tcl libtcl-devel
+BuildRequires:	libtcl-devel
 BuildRequires:	xerces-c-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -57,6 +59,7 @@ This package contains the static oasys library and its header files.
 %setup -q -n %{name}-%{version}
 %patch0 -p1
 %patch1 -p0
+%patch2 -p1 -b .tcl86
 
 # lib64 fixes
 perl -pi -e "s|/lib\b|/%{_lib}|g" aclocal/*
@@ -64,9 +67,8 @@ perl -pi -e "s|/lib\b|/%{_lib}|g" aclocal/*
 %build
 %serverbuild
 
-export WANT_AUTOCONF_2_5=1
 rm -f configure
-aclocal -I aclocal; autoconf --force; autoheader
+autoreconf
 
 export EXTLIB_CFLAGS="%{optflags}"
 export EXTLIB_LDFLAGS="-Wl,--as-needed -Wl,--no-undefined"
@@ -75,8 +77,8 @@ export EXTLIB_LDFLAGS="-Wl,--as-needed -Wl,--no-undefined"
     --disable-atomic-asm \
     --with-python=%{_bindir}/python \
     --with-tcl=%{_prefix} \
-%if %mdkversion >= 200800
-    --with-tclver=8.5 \
+%if %mdkversion >= 200810
+    --with-tclver=%{tcl_version} \
 %else
     --with-tclver=8.4 \
 %endif
