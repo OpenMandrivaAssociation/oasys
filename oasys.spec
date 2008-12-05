@@ -21,7 +21,7 @@ BuildRequires:	libbluez-devel
 BuildRequires:	libexpat-devel
 BuildRequires:	python
 BuildRequires:	python-devel
-BuildRequires:	libtcl-devel
+BuildRequires:	tcl-devel
 BuildRequires:	xerces-c-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
