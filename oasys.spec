@@ -22,7 +22,7 @@ BuildRequires:	libexpat-devel
 BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	tcl-devel
-BuildRequires:	xerces-c-devel
+BuildRequires:	xerces-c28-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -70,8 +70,10 @@ perl -pi -e "s|/lib\b|/%{_lib}|g" aclocal/*
 rm -f configure
 autoreconf
 
+%define Werror_cflags %{nil}
+
 export EXTLIB_CFLAGS="%{optflags}"
-export EXTLIB_LDFLAGS="-Wl,--as-needed -Wl,--no-undefined"
+export EXTLIB_LDFLAGS="%{?ldflags}"
 
 %configure2_5x \
     --disable-atomic-asm \
@@ -85,10 +87,10 @@ export EXTLIB_LDFLAGS="-Wl,--as-needed -Wl,--no-undefined"
     --with-google-perftools=%{_prefix} \
     --with-bluez \
     --with-expat=%{_prefix} \
-    --with-xerces-c=%{_prefix} \
     --with-zlib \
+    --disable-eds \
     --with-db=%{_prefix} \
-    --with-dbver=4.7
+    --with-dbver=4.8
                                                                                                               
 make
 
