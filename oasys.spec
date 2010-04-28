@@ -5,7 +5,7 @@
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
 Version:	1.4.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
@@ -22,7 +22,7 @@ BuildRequires:	libexpat-devel
 BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	tcl-devel
-BuildRequires:	xerces-c28-devel
+BuildRequires:	xerces-c-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
