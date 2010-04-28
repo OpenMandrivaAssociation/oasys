@@ -4,13 +4,13 @@
 
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
-Version:	1.3.0
-Release:	%mkrel 3
+Version:	1.4.0
+Release:	%mkrel 1
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/dtn/%{name}-%{version}.tgz
-Patch0:		oasys-1.3.0-gcc43_fixes.diff
+#Patch0:		oasys-1.3.0-gcc43_fixes.diff
 Patch1:		oasys-1.3.0-soname_fixes.diff
 # Fix build for Tcl 8.6 (interp->result usage, TIP #330)
 Patch2:		oasys-1.3.0-tcl86.patch
@@ -57,7 +57,7 @@ This package contains the static oasys library and its header files.
 %prep
 
 %setup -q -n %{name}-%{version}
-%patch0 -p1
+#%patch0 -p1
 %patch1 -p0
 %patch2 -p1 -b .tcl86
 
