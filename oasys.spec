@@ -5,7 +5,7 @@
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
 Version:	1.4.0
-Release:	%mkrel 2
+Release:	%mkrel 1
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
@@ -22,7 +22,7 @@ BuildRequires:	libexpat-devel
 BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	tcl-devel
-BuildRequires:	xerces-c-devel
+BuildRequires:	xerces-c28-devel
 BuildRequires:	zlib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -47,6 +47,7 @@ Group:		Development/C
 Provides:	%{name}-devel = %{version}-%{release}
 Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{libname} = %{version}
+Requires:	xerces-c28-devel
 
 %description -n	%{develname}
 OASYS is a C++ library that provides a set of wrapper classes and utilities for
