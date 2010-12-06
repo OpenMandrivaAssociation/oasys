@@ -5,7 +5,7 @@
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
 Version:	1.4.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
