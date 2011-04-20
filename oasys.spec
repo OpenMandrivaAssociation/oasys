@@ -5,17 +5,18 @@
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
 Version:	1.4.0
-Release:	%mkrel 2
+Release:	%mkrel 1
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/dtn/%{name}-%{version}.tgz
-#Patch0:		oasys-1.3.0-gcc43_fixes.diff
 Patch1:		oasys-1.3.0-soname_fixes.diff
 # Fix build for Tcl 8.6 (interp->result usage, TIP #330)
 Patch2:		oasys-1.3.0-tcl86.patch
+Patch3:		oasys-1.4.0-db5.patch
+Patch4:		oasys-1.4.0-build.patch
 BuildRequires:	autoconf
-BuildRequires:	db4-devel
+BuildRequires:	db-devel
 BuildRequires:	google-perftools-devel
 BuildRequires:	libbluez-devel
 BuildRequires:	libexpat-devel
@@ -58,9 +59,10 @@ This package contains the static oasys library and its header files.
 %prep
 
 %setup -q -n %{name}-%{version}
-#%patch0 -p1
 %patch1 -p0
 %patch2 -p1 -b .tcl86
+%patch3 -p0 -b .db5
+%patch4 -p0
 
 # lib64 fixes
 perl -pi -e "s|/lib\b|/%{_lib}|g" aclocal/*
@@ -73,7 +75,7 @@ autoreconf
 
 %define Werror_cflags %{nil}
 
-export EXTLIB_CFLAGS="%{optflags}"
+export EXTLIB_CFLAGS="%{optflags} -fpermissive"
 export EXTLIB_LDFLAGS="%{?ldflags}"
 
 %configure2_5x \
@@ -91,9 +93,8 @@ export EXTLIB_LDFLAGS="%{?ldflags}"
     --with-zlib \
     --disable-eds \
     --with-db=%{_prefix} \
-    --with-dbver=4.8
-                                                                                                              
-make
+    --with-dbver=5.1
+%make
 
 #check
 #make test
