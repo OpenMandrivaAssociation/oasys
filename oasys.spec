@@ -25,6 +25,7 @@ BuildRequires:	python-devel
 BuildRequires:	tcl-devel
 BuildRequires:	xerces-c28-devel
 BuildRequires:	zlib-devel
+BuildRequires:	readline-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
