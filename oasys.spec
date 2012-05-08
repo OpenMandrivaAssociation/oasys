@@ -94,7 +94,7 @@ export EXTLIB_LDFLAGS="%{?ldflags}"
     --with-zlib \
     --disable-eds \
     --with-db=%{_prefix} \
-    --with-dbver=5.1
+    --with-dbver=5.3
 %make
 
 #check
