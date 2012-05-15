@@ -13,7 +13,6 @@ Source0:	http://heanet.dl.sourceforge.net/sourceforge/dtn/%{name}-%{version}.tgz
 Patch1:		oasys-1.3.0-soname_fixes.diff
 # Fix build for Tcl 8.6 (interp->result usage, TIP #330)
 Patch2:		oasys-1.3.0-tcl86.patch
-Patch3:		oasys-1.4.0-db5.patch
 Patch4:		oasys-1.4.0-build.patch
 BuildRequires:	autoconf
 BuildRequires:	db-devel
@@ -62,7 +61,6 @@ This package contains the static oasys library and its header files.
 %setup -q -n %{name}-%{version}
 %patch1 -p0
 %patch2 -p1 -b .tcl86
-%patch3 -p0 -b .db5
 %patch4 -p0
 
 # lib64 fixes
