@@ -4,8 +4,8 @@
 
 Summary:	Object-oriented Adaptors to SYStem interfaces library
 Name:		oasys
-Version:	1.4.0
-Release:	2
+Version:	1.5.0
+Release:	1
 Group:		System/Libraries
 License:	Apache License
 URL:		http://sourceforge.net/projects/dtn/
@@ -18,8 +18,8 @@ Patch4:		oasys-1.4.0-build.patch
 BuildRequires:	autoconf
 BuildRequires:	db-devel
 BuildRequires:	google-perftools-devel
-BuildRequires:	libbluez-devel
-BuildRequires:	libexpat-devel
+BuildRequires:	bluez-devel
+BuildRequires:	expat-devel
 BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	tcl-devel
