@@ -1,0 +1,11 @@
+--- Makefile.orig	2011-04-12 15:42:18.000000000 +0200
++++ Makefile	2011-04-12 15:42:54.000000000 +0200
+@@ -345,7 +345,7 @@
+ tools/proc-watcher: tools/proc-watcher.o
+ 	$(CXX) $(CFLAGS) $< -o $@ $(LDFLAGS)
+ 
+-tools/randfile: tools/randfile.o
++tools/randfile: tools/randfile.o $(LIBFILES)
+ 	$(CXX) $(CFLAGS) $< -o $@ $(LDFLAGS) $(OASYS_LDFLAGS)  $(EXTLIB_LDFLAGS)
+ 
+ tools/zsize: tools/zsize.o $(LIBFILES)

@@ -1,0 +1,20 @@
+--- Makefile	2008-07-08 20:48:22.000000000 +0200
++++ Makefile.oden	2008-07-21 17:00:54.000000000 +0200
+@@ -315,7 +315,7 @@
+ 
+ lib/liboasys-$(OASYS_VERSION).$(SHLIB_EXT): $(OBJS)
+ 	@rm -f $@; mkdir -p $(@D)
+-	$(CXX) $^ $(LDFLAGS_SHLIB) $(LDFLAGS) $(EXTLIB_LDFLAGS) -o $@
++	$(CXX) $^ $(LDFLAGS_SHLIB) -Wl,-soname=liboasys-$(OASYS_VERSION).$(SHLIB_EXT) $(LDFLAGS) $(EXTLIB_LDFLAGS) -o $@
+ 
+ lib/liboasyscompat-$(OASYS_VERSION).a: $(COMPAT_OBJS)
+ 	@rm -f $@; mkdir -p $(@D)
+@@ -324,7 +324,7 @@
+ 
+ lib/liboasyscompat-$(OASYS_VERSION).$(SHLIB_EXT): $(COMPAT_OBJS)
+ 	@rm -f $@; mkdir -p $(@D)
+-	$(CXX) $^ $(LDFLAGS_SHLIB) $(LDFLAGS) -o $@
++	$(CXX) $^ $(LDFLAGS_SHLIB) -Wl,-soname=liboasyscompat-$(OASYS_VERSION).$(SHLIB_EXT) $(LDFLAGS) -o $@
+ 
+ # Rules for symlinks
+ lib/%.a: lib/%-$(OASYS_VERSION).a
