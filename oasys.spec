@@ -8,7 +8,7 @@ Version:	1.5.0
 Release:	1
 Group:		System/Libraries
 License:	Apache License
-URL:		http://sourceforge.net/projects/dtn/
+URL:		https://sourceforge.net/projects/dtn/
 Source0:	http://heanet.dl.sourceforge.net/sourceforge/dtn/%{name}-%{version}.tgz
 Patch1:		oasys-1.3.0-soname_fixes.diff
 # Fix build for Tcl 8.6 (interp->result usage, TIP #330)
