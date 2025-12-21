@@ -14,6 +14,10 @@ Patch1:		oasys-1.3.0-soname_fixes.diff
 # Fix build for Tcl 8.6 (interp->result usage, TIP #330)
 Patch2:		oasys-1.3.0-tcl86.patch
 Patch4:		oasys-1.4.0-build.patch
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	autoconf
 BuildRequires:	db-devel
 BuildRequires:	google-perftools-devel
